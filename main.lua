@@ -1,10 +1,13 @@
 local globals = require("globals")
 local sceneManager = require("scenes.sceneManager")
 local menu = require("scenes.menuScene")
+local gameScene = require("scenes.levelScene")
 
 function love.load()
     sceneManager = sceneManager.new()
-    sceneManager:add("menu", menu.new())
+    sceneManager:add("menu", menu.new(sceneManager))
+    sceneManager:add("game", gameScene.new(sceneManager))
+
 
     love.window.setMode(globals.WINDOW_WIDTH, globals.WINDOW_HEIGHT)
     love.window.setTitle(globals.WINDOW_NAME)

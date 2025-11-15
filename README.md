@@ -15,6 +15,6 @@ If you found this repository helpful for you project go for it!, however the ass
 # Roadmap
 
 - Scenes ✅
-- Level rendering
+- Level rendering (barely done)
 - Player
 - Enemies

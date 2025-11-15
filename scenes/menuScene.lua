@@ -1,11 +1,11 @@
-local sceneManager = require("scenes.sceneManager")
 local menuScene = {}
 menuScene.__index = menuScene
 
-function menuScene.new()
+function menuScene.new(sceneManager)
     local self = setmetatable({}, menuScene)
     self.buttons = {"Start Game", "Options", "Exit"}
     self.selected = 1
+    self.sceneManager = sceneManager
     return self
 end
 
@@ -30,7 +30,7 @@ function menuScene:keypressed(key)
         self.selected = math.min(#self.buttons, self.selected + 1)
     elseif key == "return" then
         if self.selected == 1 then
-            --sceneManager:switch("game")
+            self.sceneManager:load("game")
         elseif self.selected == 3 then
             love.event.quit()
         end
