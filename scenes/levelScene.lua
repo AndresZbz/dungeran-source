@@ -1,11 +1,11 @@
 local sti = require("libs.sti")
 local gameMap
 
-local menuScene = {}
-menuScene.__index = menuScene
+local levelScene = {}
+levelScene.__index = levelScene
 
-function menuScene.new()
-    local self = setmetatable({}, menuScene)
+function levelScene.new()
+    local self = setmetatable({}, levelScene)
     
     -- Try loading the map
     self.gameMap = sti("levels/map.lua")
@@ -13,7 +13,7 @@ function menuScene.new()
     return self
 end
 
-function menuScene:draw()
+function levelScene:draw()
     love.graphics.setColor(1, 1, 1)
     
     -- Fixed map drawing
@@ -22,8 +22,8 @@ function menuScene:draw()
     end
 end
 
-function menuScene:keypressed(key)
+function levelScene:keypressed(key)
 
 end
 
-return menuScene
+return levelScene
